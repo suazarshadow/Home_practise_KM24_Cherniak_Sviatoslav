@@ -166,7 +166,7 @@ def hangman(secret_word):
 
     while guesses > 0 or warnings > 0:
         print('------------------')
-        print(f'You have {warnings} warnings left \nYou have {guesses} guesses left\n Available letters:   {get_available_letters(letters_guessed, available_letters)}')
+        print(f'You have {warnings} warnings left \nYou have {guesses} guesses left\nAvailable letters:   {get_available_letters(letters_guessed, available_letters)}')
         letter = input('Please guess a letter: ')
         letters_guessed.append(letter.lower())
 
@@ -204,9 +204,9 @@ def hangman(secret_word):
 
     if is_word_guessed(secret_word, letters_guessed):
         print(
-            f'Congratulations ,you won!\n Your total score for this game is: {guesses * len(set(reduce(lambda x, y: x + list(y), secret_word, [])))}')
+            f'Congratulations ,you won!\n Your total score for this game is: {guesses * len(set(reduce(lambda x, y: x + list(y), secret_word, [])))}.\nAs you know word about what i was thinking about is {secret_word}')
     else:
-        print(f'You lose!\nYou have not any guesses or warnings goodluck next time')
+        print(f'You lose!\nYou have not any guesses or warnings goodluck next time!\nThe word i was thinking is {secret_word}.')
 
 
 
@@ -332,7 +332,7 @@ def hangman_with_hints(secret_word):
     while guesses > 0:
         print('------------------')
         print(
-            f'You have {warnings} warnings left \nYou have {guesses} guesses left\n Available letters:   {get_available_letters(letters_guessed, available_letters)}')
+            f'You have {warnings} warnings left \nYou have {guesses} guesses left\nAvailable letters:   {get_available_letters(letters_guessed, available_letters)}')
         letter = input('Please guess a letter: ')
         letters_guessed.append(letter.lower())
         if letter == '*':
@@ -370,9 +370,11 @@ def hangman_with_hints(secret_word):
             break
 
     if is_word_guessed(secret_word, letters_guessed):
-        print( f'Congratulations ,you won!\n Your total score for this game is: {guesses * len(set(reduce(lambda x, y: x + list(y), secret_word, [])))}')
+        print(
+            f'Congratulations ,you won!\n Your total score for this game is: {guesses * len(set(reduce(lambda x, y: x + list(y), secret_word, [])))}.\nAs you know word about what i was thinking about is {secret_word}')
     else:
-        print( f'You lose!\nYou have not any guesses or warnings goodluck next time')
+        print(
+            f'You lose!\nYou have not any guesses or warnings goodluck next time!\nThe word i was thinking is {secret_word}.')
 
 
 # When you've completed your hangman_with_hint function, comment the two similar
